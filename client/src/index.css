@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+/* =========================================
+   ส่วนตั้งค่าล็อคหน้าจอมือถือไม่ให้เลื่อน/เด้ง
+   ========================================= */
+html {
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+}
+
+/* ป้องกันไฮไลต์สีฟ้าเวลาแตะปุ่ม และป้องกันการซูมเวลาแตะรัวๆ บนมือถือ */
+button, 
+a {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; 
+}
+
+/* =========================================
+   ส่วนตั้งค่าสีพื้นฐาน
+   ========================================= */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: 'Prompt', sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Prompt', sans-serif;
+}
